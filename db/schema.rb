@@ -10,9 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_06_01_001626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "state"
+    t.string "country"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weather_currentlies", force: :cascade do |t|
+    t.integer "city_id"
+    t.integer "temperature"
+    t.decimal "precipitation_probability", precision: 3, scale: 2
+    t.string "summary"
+    t.string "precipitation_type"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weather_days", force: :cascade do |t|
+    t.integer "city_id"
+    t.integer "temperature"
+    t.string "day"
+    t.string "icon"
+    t.string "summary"
+    t.text "longer_summary"
+    t.decimal "precipitation_probability", precision: 3, scale: 2
+    t.string "precipitation_type"
+    t.integer "temperature_high"
+    t.integer "temperature_low"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weather_hours", force: :cascade do |t|
+    t.integer "city_id"
+    t.integer "temperature"
+    t.decimal "precipitation_probability", precision: 3, scale: 2
+    t.string "icon"
+    t.string "summary"
+    t.text "longer_summary"
+    t.string "precipitation_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

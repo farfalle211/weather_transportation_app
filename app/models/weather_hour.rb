@@ -1,0 +1,2 @@
+class WeatherHour < ApplicationRecord
+end
