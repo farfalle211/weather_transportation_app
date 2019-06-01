@@ -1,0 +1,8 @@
+json.id weather_hour.id
+json.city_id weather_hour.city_id
+json.temperature weather_hour.temperature
+json.precipitation_probability weather_hour.precipitation_probability
+json.icon weather_hour.icon
+json.summary weather_hour.summary
+json.longer_summary weather_hour.longer_summary
+json.precipitation_type weather_hour.precipitation_type
